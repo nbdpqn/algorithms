@@ -88,5 +88,13 @@ print('Hello world!')
 https://leetcode.com/problems/reverse-linked-list/
 
 ```python
-print('Hello world!')
+def reverseList(self, head: ListNode) -> ListNode:
+    prev = None
+    current = head
+    while current:
+        temp = current.next
+        current.next = prev
+        prev = current
+        current = temp
+    return prev
 ```
