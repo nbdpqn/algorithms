@@ -17,7 +17,15 @@ print('Hello world!')
 https://leetcode.com/problems/merge-intervals/
 
 ```python
-print('Hello world!')
+def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    data = sorted(intervals, key=lambda x: x[0])
+    result = list()
+    for interval in data:
+        if not result or result[-1][1] < interval[0]:
+            result.append(interval)
+        else:
+            result[-1][1] = max(result[-1][1], interval[1])
+    return result
 ```
 
 ## Non-overlapping Intervals
