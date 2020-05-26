@@ -77,7 +77,7 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         current = current.next
     if not l1:
         current.next = l2
-    if not l2:
+    elif not l2:
         current.next = l1
     return head.next
 ```
