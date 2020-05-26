@@ -33,7 +33,17 @@ print('Hello world!')
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
 ```python
-print('Hello world!')
+def kthSmallest(self, root: TreeNode, k: int) -> int:
+    stack = list()
+    while k >= 0:
+        while root:
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        k -= 1
+        if k == 0:
+            return root.val
+        root = root.right
 ```
 
 ## Subtree of Another Tree
