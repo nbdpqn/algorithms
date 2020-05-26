@@ -10,9 +10,9 @@ https://leetcode.com/problems/insert-interval/
 
 ```python
 def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-    data = sorted(intervals + [newInterval], key=lambda x: x[0])
+    sorted_intervals = sorted(intervals + [newInterval], key=lambda x: x[0])
     result = list()
-    for interval in data:
+    for interval in sorted_intervals:
         if not result or result[-1][1] < interval[0]:
             result.append(interval)
         else:
