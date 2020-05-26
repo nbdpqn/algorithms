@@ -49,7 +49,22 @@ print('Hello world!')
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 ```python
-print('Hello world!')
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    if not root:
+        return list()
+    result = list()
+    currentLevel = [root]
+    while currentLevel:
+        queue = currentLevel
+        currentLevel = []
+        result.append([elem.val for elem in queue])
+        while queue:
+            node = queue.pop(0)
+            if not node.left:
+                currentLevel.append(node.left)
+            if not node.right:
+                currentLevel.append(node.right)
+    return result
 ```
 
 ## Path Sum
