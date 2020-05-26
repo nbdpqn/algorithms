@@ -43,15 +43,15 @@ https://leetcode.com/problems/linked-list-cycle/
 def hasCycle(self, head: ListNode) -> bool:
     if not head:
         return False
-    mid = head
-    temp = head.next
-    while temp and temp != mid:
-        temp = temp.next
-        if not temp:
+    slow = head
+    fast = head.next
+    while fast and fast != slow:
+        fast = fast.next
+        if not fast:
             return False
-        mid = mid.next
-        temp = temp.next
-    if mid == temp:
+        slow = slow.next
+        fast = fast.next
+    if slow == fast:
         return True
     return False
 ```
