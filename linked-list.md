@@ -80,7 +80,13 @@ print('Hello world!')
 https://leetcode.com/problems/middle-of-the-linked-list/
 
 ```python
-print('Hello world!')
+def middleNode(self, head: ListNode) -> ListNode:
+    first = head
+    second = head
+    while second and second.next:
+        first = first.next
+        second = second.next.next
+    return first
 ```
 
 ## Reverse Linked List
