@@ -28,10 +28,10 @@ https://leetcode.com/problems/non-overlapping-intervals/
 def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
     if not intervals:
         return 0
-    data = sorted(intervals, key=lambda x: x[1])
-    right_endpoint = data[0][1]
+    sorted_intervals = sorted(intervals, key=lambda x: x[1])
+    right_endpoint = sorted_intervals[0][1]
     counter = 0
-    for interval in data[1:]:
+    for interval in sorted_intervals[1:]:
         if interval[0] < right_endpoint:
             counter += 1
         else:
