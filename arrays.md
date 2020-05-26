@@ -25,5 +25,16 @@ print('Hello world!')
 https://leetcode.com/problems/two-sum/
 
 ```python
-print('Hello world!')
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    data = sorted(enumerate(nums), key=lambda x: x[1])
+
+    first = 0
+    second = len(data) - 1
+    while first != second:
+        if data[first][1] + data[second][1] == target:
+            return [data[first][0], data[second][0]]
+        elif data[first][1] + data[second][1] < target:
+            first += 1
+        else:
+            second -= 1
 ```
