@@ -20,7 +20,7 @@ def merge(self, left: ListNode, right: ListNode) -> ListNode:
     head = ListNode(0)
     current = head
     while left and right:
-        if left.val < right.val:
+        if left.val <= right.val:
             current.next = left
             left = left.next
         else:
