@@ -51,20 +51,20 @@ https://leetcode.com/problems/linked-list-cycle-ii/
 def detectCycle(self, head: ListNode) -> ListNode:
     if not head:
         return None
-    mid = head
-    temp = head.next
-    while temp and temp != mid:
-        temp = temp.next
-        if not temp:
+    slow = head
+    fast = head.next
+    while fast and fast != slow:
+        fast = fast.next
+        if not fast:
             return None
-        mid = mid.next
-        temp = temp.next
-    if mid == temp:
+        slow = slow.next
+        fast = fast.next
+    if slow == fast:
         current = head
-        temp = temp.next
-        while current != temp:
+        fast = fast.next
+        while current != fast:
             current = current.next
-            temp = temp.next
+            fast = fast.next
         return current
     return None
 ```
