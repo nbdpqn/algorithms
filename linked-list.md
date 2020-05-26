@@ -72,7 +72,44 @@ print('Hello world!')
 https://leetcode.com/problems/palindrome-linked-list/
 
 ```python
-print('Hello world!')
+import copy
+
+
+def reverseList(self, head: ListNode) -> ListNode:
+    prev = None
+    current = head
+    while current:
+        temp = current.next
+        current.next = prev
+        prev = current
+        current = temp
+    return prev
+
+
+def areEqual(self, first: ListNode, second: ListNode) -> bool:
+    while second:
+        if second.val != first.val:
+            return False
+        second = second.next
+        first = first.next
+    return True
+
+
+def isPalindrome(self, head: ListNode) -> bool:
+    if not head or not head.next:
+        return True
+    first = head
+    second = head
+    while second.next and second.next.next:
+        first = first.next
+        second = second.next.next
+    if not second.next:
+        secondHalf = copy.copy(first)
+    else:
+        secondHalf = copy.copy(first.next)
+    first.next = None
+    firstHalf = self.reverseList(head)
+    return self.areEqual(firstHalf, secondHalf)
 ```
 
 ## Middle of the Linked List
