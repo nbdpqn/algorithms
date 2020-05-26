@@ -40,7 +40,20 @@ print('Hello world!')
 https://leetcode.com/problems/linked-list-cycle/
 
 ```python
-print('Hello world!')
+def hasCycle(self, head: ListNode) -> bool:
+    if not head:
+        return False
+    mid = head
+    temp = head.next
+    while temp and temp != mid:
+        temp = temp.next
+        if not temp:
+            return False
+        mid = mid.next
+        temp = temp.next
+    if mid == temp:
+        return True
+    return False
 ```
 
 ## Linked List Cycle II
