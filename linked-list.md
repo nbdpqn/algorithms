@@ -86,7 +86,7 @@ def reverseList(self, head: ListNode) -> ListNode:
     return prev
 
 
-def areEqual(self, first: ListNode, second: ListNode) -> bool:
+def isEqual(self, first: ListNode, second: ListNode) -> bool:
     while second:
         if second.val != first.val:
             return False
@@ -109,7 +109,7 @@ def isPalindrome(self, head: ListNode) -> bool:
         secondHalf = copy.copy(first.next)
     first.next = None
     firstHalf = self.reverseList(head)
-    return self.areEqual(firstHalf, secondHalf)
+    return self.isEqual(firstHalf, secondHalf)
 ```
 
 ## Middle of the Linked List
