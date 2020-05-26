@@ -17,9 +17,6 @@ print('Hello world!')
 https://leetcode.com/problems/3sum/
 
 ```python
-from itertools import count
-
-
 def threeSum(self, nums: List[int]) -> List[List[int]]:
     sorted_nums = sorted(nums)
     result = list()
