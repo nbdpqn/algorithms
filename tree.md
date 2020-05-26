@@ -41,7 +41,16 @@ print('Hello world!')
 https://leetcode.com/problems/subtree-of-another-tree/
 
 ```python
-print('Hello world!')
+def areEqual(self, s: TreeNode, t: TreeNode) -> bool:
+    if not s and not t:
+        return True
+    if not s or not t:
+        return False
+    return s.val == t.val and self.areEqual(s.left, t.left) and self.areEqual(s.right, t.right)
+
+
+def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+    return s and (self.areEqual(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t))
 ```
 
 ## Binary Tree Level Order Traversal
