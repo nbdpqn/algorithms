@@ -99,7 +99,7 @@ def isMirrored(self, first: TreeNode, second: TreeNode) -> bool:
 
 
 def isSymmetric(self, root: TreeNode) -> bool:
-    return self.isMirror(root, root)
+    return self.isMirrored(root, root)
 ```
 
 ## Binary Tree Inorder Traversal
