@@ -48,7 +48,25 @@ print('Hello world!')
 https://leetcode.com/problems/linked-list-cycle-ii/
 
 ```python
-print('Hello world!')
+def detectCycle(self, head: ListNode) -> ListNode:
+    if not head:
+        return None
+    mid = head
+    temp = head.next
+    while temp and temp != mid:
+        temp = temp.next
+        if not temp:
+            return None
+        mid = mid.next
+        temp = temp.next
+    if mid == temp:
+        current = head
+        temp = temp.next
+        while current != temp:
+            current = current.next
+            temp = temp.next
+        return current
+    return None
 ```
 
 ## Remove Nth Node From End of List
