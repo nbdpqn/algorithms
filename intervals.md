@@ -9,7 +9,15 @@
 https://leetcode.com/problems/insert-interval/
 
 ```python
-print('Hello world!')
+def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    data = sorted(intervals + [newInterval], key=lambda x: x[0])
+    result = list()
+    for interval in data:
+        if not result or result[-1][1] < interval[0]:
+            result.append(interval)
+        else:
+            result[-1][1] = max(result[-1][1], interval[1])
+    return result
 ```
 
 ## Merge Intervals
