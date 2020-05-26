@@ -21,24 +21,24 @@ from itertools import count
 
 
 def threeSum(self, nums: List[int]) -> List[List[int]]:
-    data = sorted(nums)
+    sorted_nums = sorted(nums)
     result = list()
-    for first in range(len(data) - 2):
-        if first > 0 and nums[first] == data[first - 1]:
+    for first in range(len(sorted_nums) - 2):
+        if first > 0 and sorted_nums[first] == sorted_nums[first - 1]:
             continue
         second = first + 1
-        third = len(data) - 1
+        third = len(sorted_nums) - 1
         while second < third:
-            total_sum = data[first] + data[second] + data[third]
+            total_sum = sorted_nums[first] + sorted_nums[second] + sorted_nums[third]
             if total_sum < 0:
                 second += 1
             elif total_sum > 0:
                 third -= 1
             else:
-                result.append([data[first], data[second], data[third]])
-                while second < third and data[second] == data[second + 1]:
+                result.append([sorted_nums[first], sorted_nums[second], sorted_nums[third]])
+                while second < third and sorted_nums[second] == sorted_nums[second + 1]:
                     second += 1
-                while third > second and data[third] == data[third - 1]:
+                while third > second and sorted_nums[third] == sorted_nums[third - 1]:
                     third -= 1
                 second += 1
                 third -= 1
