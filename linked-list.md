@@ -24,7 +24,19 @@ print('Hello world!')
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 ```python
-print('Hello world!')
+def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+    currentA = headA
+    currentB = headB
+    while currentA != currentB:
+        if not currentA:
+            currentA = headB
+        else:
+            currentA = currentA.next
+        if not currentB:
+            currentB = headA
+        else:
+            currentB = currentB.next
+    return currentA
 ```
 
 ## Reorder List
