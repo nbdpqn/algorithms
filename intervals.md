@@ -18,9 +18,9 @@ https://leetcode.com/problems/merge-intervals/
 
 ```python
 def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-    data = sorted(intervals, key=lambda x: x[0])
+    sorted_intervals = sorted(intervals, key=lambda x: x[0])
     result = list()
-    for interval in data:
+    for interval in sorted_intervals:
         if not result or result[-1][1] < interval[0]:
             result.append(interval)
         else:
