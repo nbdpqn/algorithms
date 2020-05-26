@@ -89,7 +89,17 @@ print('Hello world!')
 https://leetcode.com/problems/symmetric-tree/
 
 ```python
-print('Hello world!')
+def isMirrored(self, first: TreeNode, second: TreeNode) -> bool:
+    if not first and not second:
+        return True
+    if not first or not second:
+        return False
+    return first.val == second.val and self.isMirrored(first.right, second.left) and \
+           self.isMirrored(first.left, second.right)
+
+
+def isSymmetric(self, root: TreeNode) -> bool:
+    return self.isMirror(root, root)
 ```
 
 ## Binary Tree Inorder Traversal
