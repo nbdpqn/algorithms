@@ -89,7 +89,14 @@ print('Hello world!')
 https://leetcode.com/problems/invert-binary-tree/
 
 ```python
-print('Hello world!')
+def invertTree(self, root: TreeNode) -> TreeNode:
+    if not root:
+        return None
+    right = self.invertTree(root.right)
+    left = self.invertTree(root.left)
+    root.left = right
+    root.right = left
+    return root
 ```
 
 ## Same Tree
