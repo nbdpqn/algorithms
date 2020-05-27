@@ -94,7 +94,15 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
 https://leetcode.com/problems/path-sum/
 
 ```python
-print('Hello world!')
+def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+    if not root:
+        return False
+    elif not root.left and not root.right and sum - root.val == 0:
+        return True
+    elif not root.left and not root.right and sum - root.val != 0:
+        return False
+    else:
+        return self.hasPathSum(root.right, sum - root.val) or self.hasPathSum(root.left, sum - root.val)
 ```
 
 ## Invert Binary Tree
