@@ -25,7 +25,20 @@ print('Hello world!')
 https://leetcode.com/problems/validate-binary-search-tree/
 
 ```python
-print('Hello world!')
+def isValidBST(self, root: TreeNode) -> bool:
+    if not root:
+        return True
+    stack = [(root, float('-inf'), float('inf'))]
+    while stack:
+        root, lower, upper = stack.pop()
+        if not root:
+            continue
+        value = root.val
+        if value <= lower or value >= upper:
+            return False
+        stack.append((root.right, value, upper))
+        stack.append((root.left, lower, value))
+    return True
 ```
 
 ## Kth Smallest Element in a BST
