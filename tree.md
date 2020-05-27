@@ -105,7 +105,11 @@ print('Hello world!')
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 ```python
-print('Hello world!')
+def maxDepth(self, root: TreeNode) -> int:
+    if not root:
+        return 0
+    else:
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 ```
 
 ## Symmetric Tree
