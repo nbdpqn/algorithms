@@ -171,5 +171,16 @@ def isSymmetric(self, root: TreeNode) -> bool:
 https://leetcode.com/problems/binary-tree-inorder-traversal/
 
 ```python
-print('Hello world!')
+def inorderTraversal(self, root: TreeNode) -> List[int]:
+    stack = list()
+    result = list()
+    current = root
+    while not current or not stack:
+        while current:
+            stack.append(current)
+            current = current.left
+        current = stack.pop()
+        result.append(current.val)
+        current = current.right
+    return result
 ```
