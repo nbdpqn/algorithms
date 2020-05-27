@@ -75,7 +75,51 @@ def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
 https://leetcode.com/problems/reorder-list/
 
 ```python
-print('Hello world!')
+def reorderList(self, head: ListNode) -> None:
+    if not head:
+        return head
+    data = []
+    current = head
+    i, j = 0, -1
+    while current:
+        data.append(current)
+        current = current.next
+        j += 1
+    while i < j:
+        data[i].next = data[j]
+        i += 1
+        if i >= j:
+            break
+        data[j].next = data[i]
+        j = j - 1
+    data[j].next = None
+
+
+def reorderList(self, head: ListNode) -> None:
+    if not head:
+        return head
+
+    mid = head
+    temp = head
+    while mid.next and temp.next and temp.next.next:
+        mid = mid.next
+        temp = temp.next.next
+
+    tail = mid
+    previous = None
+    half = mid.next
+    while half:
+        mid.next = previous
+        previous = mid
+        mid = half
+        half = half.next
+    mid.next = previous
+    current = None
+    while current != tail:
+        current = head.next
+        head.next = mid
+        head = mid
+        mid = current
 ```
 
 ## Linked List Cycle
