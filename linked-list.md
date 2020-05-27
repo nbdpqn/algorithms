@@ -87,7 +87,19 @@ print('Hello world!')
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 ```python
-print('Hello world!')
+def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+    start = ListNode(0)
+    start.next = head
+    
+    first = start
+    second = start
+    for i in range(1, n + 2):
+        first = first.next
+    while first:
+        first = first.next
+        second = second.next
+    second.next = second.next.next
+    return start.next
 ```
 
 ## Merge Two Sorted Lists
