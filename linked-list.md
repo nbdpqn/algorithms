@@ -104,7 +104,25 @@ def hasCycle(self, head: ListNode) -> bool:
 https://leetcode.com/problems/linked-list-cycle-ii/
 
 ```python
-print('Hello world!')
+def detectCycle(self, head: ListNode) -> ListNode:
+    if not head:
+        return None
+    slow = head
+    fast = head.next
+    while fast and fast != slow:
+        fast = fast.next
+        if not fast:
+            return None
+        slow = slow.next
+        fast = fast.next
+    if slow == fast:
+        current = head
+        fast = fast.next
+        while current != fast:
+            current = current.next
+            fast = fast.next
+        return current
+    return None
 ```
 
 ## Remove Nth Node From End of List
