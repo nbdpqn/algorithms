@@ -63,7 +63,19 @@ def isValidBST(self, root: TreeNode) -> bool:
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
 ```python
-print('Hello world!')
+def kthSmallest(self, root: TreeNode, k: int) -> int:
+    assert k > 0
+    stack = list()
+    while True:
+        while root:
+            stack.append(root)
+            root = root.left
+        assert stack # stack is empty if and only if k > size of tree
+        root = stack.pop()
+        k -= 1
+        if k == 0:
+            return root.val
+        root = root.right
 ```
 
 ## Subtree of Another Tree
